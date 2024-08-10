@@ -1,6 +1,6 @@
 {
   "name": "react-animate-onview",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A lightweight React component for adding smooth, customizable animations to elements as they enter the viewport.",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",

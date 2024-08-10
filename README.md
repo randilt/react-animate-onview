@@ -11,6 +11,7 @@ A lightweight React component for adding smooth, customizable animations to elem
 - Customizable animation types (fade, slide, zoom, rotate)
 - Configurable animation duration and delay
 - Viewport detection for triggering animations
+- Staggered animations for multiple elements
 - TypeScript support
 
 ## Installation
@@ -56,6 +57,7 @@ The `AnimateOnView` component accepts the following props:
   - `"rotateIn"`
 - `duration` (optional): The duration of the animation in seconds. Default is 0.5.
 - `delay` (optional): The delay before the animation starts in seconds. Default is 0.
+- `staggerDelay` (optional): The delay between each child element's animation when using staggered animations. Default is 0.1.
 - `viewportOnce` (optional): If true, the animation only happens once when the element comes into view. Default is false.
 - `viewportAmount` (optional): The amount of the element that needs to be in view before the animation triggers. Default is 0.1.
 
@@ -86,6 +88,42 @@ The `AnimateOnView` component accepts the following props:
     <p>This card will rotate in once when it enters the viewport</p>
   </div>
 </AnimateOnView>
+```
+
+### Staggered animation for multiple elements
+
+```jsx
+<AnimateOnView animation="fadeInFromBottom" staggerDelay={0.2}>
+  <h2>Staggered Animation</h2>
+  <p>This paragraph appears after the heading</p>
+  <button>This button comes last</button>
+</AnimateOnView>
+```
+
+### Complex layout with mixed animations
+
+```jsx
+<div className="container">
+  <AnimateOnView animation="fadeInFromLeft">
+    <h1>Welcome to My Site</h1>
+  </AnimateOnView>
+
+  <AnimateOnView animation="fadeInFromBottom" staggerDelay={0.15}>
+    <p>Here's some introductory text.</p>
+    <button>Call to Action</button>
+    <div className="image-gallery">
+      <img src="image1.jpg" alt="Image 1" />
+      <img src="image2.jpg" alt="Image 2" />
+      <img src="image3.jpg" alt="Image 3" />
+    </div>
+  </AnimateOnView>
+
+  <AnimateOnView animation="zoomIn" viewportAmount={0.3}>
+    <footer>
+      <p>© 2024 My Company</p>
+    </footer>
+  </AnimateOnView>
+</div>
 ```
 
 ## Contributing

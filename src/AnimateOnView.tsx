@@ -13,6 +13,7 @@ interface AnimateOnViewProps {
   animation: AnimationType;
   duration?: number;
   delay?: number;
+  staggerDelay?: number;
   viewportOnce?: boolean;
   viewportAmount?: number;
 }
@@ -45,26 +46,41 @@ const AnimateOnView: React.FC<AnimateOnViewProps> = ({
   animation,
   duration = 0.5,
   delay = 0,
+  staggerDelay = 0.1,
   viewportOnce = false,
   viewportAmount = 0.1,
-}: {
-  children: React.ReactNode;
-  animation: AnimationType;
-  duration?: number;
-  delay?: number;
-  viewportOnce?: boolean;
-  viewportAmount?: number;
 }) => {
+  const childrenArray = React.Children.toArray(children);
+
+  if (childrenArray.length === 1) {
+    return (
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: viewportOnce, amount: viewportAmount }}
+        transition={{ duration, delay }}
+        variants={animations[animation]}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: viewportOnce, amount: viewportAmount }}
-      transition={{ duration, delay }}
-      variants={animations[animation]}
-    >
-      {children}
-    </motion.div>
+    <>
+      {childrenArray.map((child, index) => (
+        <motion.div
+          key={index}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: viewportOnce, amount: viewportAmount }}
+          transition={{ duration, delay: delay + index * staggerDelay }}
+          variants={animations[animation]}
+        >
+          {child}
+        </motion.div>
+      ))}
+    </>
   );
 };
 
