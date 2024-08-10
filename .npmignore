@@ -1,0 +1,75 @@
+# Source files
+src/
+
+# TypeScript config
+tsconfig.json
+
+# Rollup config
+rollup.config.js
+
+# Test files
+__tests__/
+*.test.js
+*.spec.js
+
+# Development config files
+.eslintrc
+.prettierrc
+.babelrc
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# Git related
+.git/
+.gitignore
+
+# CI config
+.travis.yml
+.circleci/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# npm package lock
+package-lock.json
+npm-debug.log
+
+# yarn
+yarn.lock
+yarn-error.log
+
+# Coverage directory used by tools like Istanbul
+coverage/
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+.env.test
+
+# Documentation source files (if you generate docs)
+docs/
+
+# Any other development or build tools
+webpack.config.js
+gulpfile.js
