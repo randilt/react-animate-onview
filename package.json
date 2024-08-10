@@ -1,6 +1,7 @@
 {
   "name": "react-animate-onview",
   "version": "0.1.0",
+  "description": "A lightweight React component for adding smooth, customizable animations to elements as they enter the viewport.",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
@@ -9,7 +10,9 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "framer-motion": "^4.0.0 || ^5.0.0 || ^6.0.0",
@@ -19,7 +22,37 @@
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.5.0",
+    "@types/react": "^18.0.0",
+    "@types/jest": "^27.0.0",
+    "jest": "^27.0.0",
     "rollup": "^2.79.1",
-    "typescript": "^4.7.3"
+    "typescript": "^4.7.3",
+    "react": "^18.2.0",
+    "framer-motion": "^6.0.0"
+  },
+  "keywords": [
+    "react",
+    "animation",
+    "scroll",
+    "intersection-observer",
+    "framer-motion",
+    "onview",
+    "reveal",
+    "fade-in",
+    "zoom-in",
+    "rotate-in"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/randilt/react-animate-onview.git"
+  },
+  "bugs": {
+    "url": "https://github.com/randilt/react-animate-onview/issues"
+  },
+  "homepage": "https://github.com/randilt/react-animate-onview#readme",
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
